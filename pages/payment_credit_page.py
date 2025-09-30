@@ -80,3 +80,23 @@ class PaymentCreditCardPage:
             print("JS click used")
 
             time.sleep(1)
+
+    def click_confirm_button(self):
+        try:
+            # Switch back to default content first
+            self.driver.switch_to.default_content()
+
+            # Wait for confirm button and click
+            confirm_btn = self.wait.until(
+                EC.element_to_be_clickable((By.ID, "Gr0W8-confirm-btn"))
+            )
+            confirm_btn.click()
+            print("Clicked confirm button")
+            time.sleep(2)
+        except Exception as e:
+            print(f"Error clicking confirm button: {e}")
+
+    def verify_redirect_to_confirmation(self):
+        self.wait.until(EC.url_contains("sandbox.grow.link/confirmation"))
+        assert "sandbox.grow.link/confirmation" in self.driver.current_url
+        print("✓ Redirected to confirmation page")

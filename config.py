@@ -69,8 +69,9 @@ PAYMENT_URL = "https://sandbox.grow.link/6f340bc4d18a0bcb559914d970ac2870-MTE4Nj
 
 # Test credit card
 TEST_CARD = {
-    "number": "4580458045804580",
+    "card_number": "4580458045804580",
     "exp_month": "03",
     "exp_year": "30",
-    "cvv": "123"
+    "cvv": "123",
+    "personal_id": "322358466"
 }

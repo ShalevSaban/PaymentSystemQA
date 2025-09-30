@@ -5,10 +5,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 import time
 from config import PRODUCTS, MAX_ITEMS_IN_CART, PAYMENT_URL,OPT,TEST_CARD
-from products_page import ProductsPage
-from details_page import DetailsPage
-from payment_credit_page import PaymentCreditCardPage
-from payments_options_page import PaymentOptionsPage
+from pages.products_page import ProductsPage
+from pages.details_page import DetailsPage
+from pages.payment_credit_page import PaymentCreditCardPage
+from pages.payments_options_page import PaymentOptionsPage
 
 options = webdriver.ChromeOptions()
 driver = webdriver.Chrome(options=options)

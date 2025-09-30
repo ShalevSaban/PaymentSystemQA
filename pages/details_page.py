@@ -19,24 +19,13 @@ class DetailsPage:
     def fill_form(self, full_name, phone, preparation_index=0,
                   pickles_index=0, chips_index=0, shipping_index=0, address="",notes="",source_index=0):
         """Fill all text input fields"""
-        # Full name (required)
-        # name_field = self.wait.until(
-        #     EC.presence_of_element_located((By.NAME, "fullName"))
-        # )
-        # self.driver.execute_script("arguments[0].scrollIntoView(true);", name_field)
-        # time.sleep(0.5)
         name_field = self.wait.until(
             EC.element_to_be_clickable((By.NAME, "fullName"))
         )
         name_field.clear()
         name_field.send_keys(full_name)
 
-        # Phone (required)
-        # phone_field = self.wait.until(
-        #     EC.presence_of_element_located((By.NAME, "phone"))
-        # )
-        # self.driver.execute_script("arguments[0].scrollIntoView(true);", phone_field)
-        # time.sleep(0.5)
+
         phone_field = self.wait.until(
             EC.element_to_be_clickable((By.NAME, "phone"))
         )
