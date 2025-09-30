@@ -75,3 +75,39 @@ TEST_CARD = {
     "cvv": "123",
     "personal_id": "322358466"
 }
+
+# Error messages configuration
+ERROR_MESSAGES = {
+    "fullName": {
+        "id": "fullName-input-error",
+        "message": "יש למלא שם ושם משפחה"
+    },
+    "phone": {
+        "id": "phone-input-error",
+        "message": "מספר סלולרי שגוי"
+    },
+    "preparation": {
+        "id": "2933-input-error",
+        "message": "חייבים לבחור אופציה אחת"
+    },
+    "pickles": {
+        "id": "2934-input-error",
+        "message": "חייבים לבחור אופציה אחת"
+    },
+    "chips": {
+        "id": "2935-input-error",
+        "message": "חייבים לבחור אופציה אחת"
+    },
+    "shipping": {
+        "id": "shipping-input-error",
+        "message": "חייבים לבחור אופציה אחת"
+    },
+    "terms": {
+        "id": "termsCheckbox-input-error",
+        "message": "לא ניתן להמשיך בתהליך ללא אישור תנאי התקנון"
+    },
+    "card_number":{
+        "id":"error-card-number",
+        "message":"מספר כרטיס לא תקין"
+    }
+}

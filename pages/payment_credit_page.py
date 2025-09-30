@@ -5,6 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.common.exceptions import TimeoutException
 import time
+from config import ERROR_MESSAGES
+
 
 class PaymentCreditCardPage:
 
@@ -100,4 +102,16 @@ class PaymentCreditCardPage:
     def verify_redirect_to_confirmation(self):
         self.wait.until(EC.url_contains("sandbox.grow.link/confirmation"))
         assert "sandbox.grow.link/confirmation" in self.driver.current_url
-        print("✓ Redirected to confirmation page")
+        print("Redirected to confirmation page")
+
+
+    def verify_credit_card_error(self, field_key):
+        try:
+            config = ERROR_MESSAGES[field_key]
+            element = self.wait.until(EC.visibility_of_element_located((By.ID, config["id"])))
+            assert element.text == config["message"]
+            print(f"{field_key} error displayed")
+            return True
+        except Exception as e:
+            print(f"Error: {e}")
+            return False
