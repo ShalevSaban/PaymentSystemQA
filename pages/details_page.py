@@ -9,7 +9,7 @@ class DetailsPage:
 
     def __init__(self,driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 5)
+        self.wait = WebDriverWait(driver, 10)
 
         # Wait for form to load
         self.wait.until(
@@ -115,35 +115,33 @@ class DetailsPage:
 
             time.sleep(1)
 
+    def verify_input_error(self, field_key):
+        """Verify input error message is displayed"""
 
-
-
-def verify_input_error(self, field_key):
-    """Verify input error message is displayed"""
-
-    error_config = ERROR_MESSAGES.get(field_key)
-    if not error_config:
-        print(f"Unknown field: {field_key}")
-        return False
-
-    try:
-        error_element = self.wait.until(
-            EC.visibility_of_element_located((By.ID, error_config["id"]))
-        )
-
-        actual_text = error_element.text
-        expected_text = error_config["message"]
-
-        if actual_text != expected_text:
-            print(f"Expected: '{expected_text}', Got: '{actual_text}'")
+        error_config = ERROR_MESSAGES.get(field_key)
+        if not error_config:
+            print(f"Unknown field: {field_key}")
             return False
 
-        print(f"{field_key} error displayed: {actual_text}")
-        return True
+        try:
+            wait = WebDriverWait(self.driver, 5)
+            error_element = wait.until(
+                EC.visibility_of_element_located((By.ID, error_config["id"]))
+            )
 
-    except Exception as e:
-        print(f"{field_key} error not found: {str(e)}")
-        return False
+            actual_text = error_element.text
+            expected_text = error_config["message"]
+
+            if actual_text != expected_text:
+                print(f"Expected: '{expected_text}', Got: '{actual_text}'")
+                return False
+
+            print(f"{field_key} error displayed: {actual_text}")
+            return True
+
+        except Exception as e:
+            print(f"{field_key} error not found: {str(e)}")
+            return False
 
 
 
