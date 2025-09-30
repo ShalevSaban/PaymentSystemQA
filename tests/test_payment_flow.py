@@ -1,13 +1,10 @@
-# 1. Standard library imports
 import time
 import pytest
 
-# 2. Third-party imports
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# 3. Local application imports
 from pages.products_page import ProductsPage
 from pages.details_page import DetailsPage
 from pages.payments_options_page import PaymentOptionsPage
